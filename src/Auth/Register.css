@@ -1,0 +1,13 @@
+.tag1{background-color:#eee}
+.tag2{border-radius:25px}
+.icon{color:green}
+.tab1{background-color:#eee}
+.tab2{border-radius:25px}
+.tab2,.tab3{background-color:#35afff}
+.tab4{color:red}.lcolor{color:green}
+.icona{color:red;font-size:40px;min-width:50px;padding:10px}
+.input-icons i{position:absolute}
+.input-icons{margin-bottom:10px;width:100%}
+.icon{color:blue;min-width:50px}
+.icon,.input-field{padding:10px;text-align:center}
+.input-field{width:100%}.bgrl{margin-left:1vw}.side_bar{background-color:#b459b4!important;display:inline-block;height:100%;width:10%}

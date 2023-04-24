@@ -1,0 +1,58 @@
+/* .tab1{
+    background-color: #eee;
+} */
+
+
+/* .tab2{
+    border-radius: 25px;
+    background-color:rgb(53,175,257) ;
+} */
+
+/* 
+.tab3{
+    background-color: rgb(53,175,257);
+} */
+
+
+
+.tab4{
+    color: red;
+}
+
+
+.icona{
+    padding: 10px;
+    color: red;
+    font-size: 40px;
+    min-width: 50px;
+    /* text-align: center; */
+}
+
+
+.input-icons i {
+    position: absolute;
+}
+
+
+.input-icons {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+
+.icon {
+    padding: 10px;
+    color: blue;
+    min-width: 50px;
+    text-align: center;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+.connect{
+    text-align: center;
+    color: red;
+}
