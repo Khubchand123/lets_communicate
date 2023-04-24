@@ -6,7 +6,7 @@ import NoteState from "./context/notes/NoteState";
 import Alert from "./Components/Alert";
 import Signup from './Auth/Register'
 import Login from "./Auth/Login"
-
+import Speaking from "./Listening_Speaking/component4/Speaking";
 function App() {
   const [fScreen,setFScreen] = useState(0);
     document.addEventListener("dblclick",()=>{
