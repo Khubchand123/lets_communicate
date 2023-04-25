@@ -1,8 +1,17 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import data from './topic.json'
-// import {Link} from "react-router-dom"
+import {useNavigate} from "react-router-dom"
 import Titem from './Titem';
 const Notess = () => {
+  let navigate = useNavigate();
+    useEffect(() => {
+        if (localStorage.getItem('token')) {
+          
+        }
+        else {
+            navigate("/login");
+        }
+    })
   const topic = data.topic;
   const dataList = topic.map(
     (element) =>{

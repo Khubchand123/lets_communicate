@@ -1,10 +1,12 @@
-import React, { Component } from 'react'
+import React, { Component} from 'react'
 import Newsitem from './Newsitem'
+import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Navbar from './Navbar';
 
-export class News extends Component{
-                    // Without using API
+export class News extends Component {
+    
+    // Without using API
     // articles = [
     //     {
     //         "source": {
@@ -45,66 +47,67 @@ export class News extends Component{
         category: PropTypes.string,
         topic: PropTypes.string
     }
-    constructor(){
+    constructor() {
+        
         super();
         this.state = {
-            articles:[],
-            page:1,
-            tpage:1
+            articles: [],
+            page: 1,
+            tpage: 1
         }
     }
-    async componentDidMount(){
+    async componentDidMount() {
         let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=24c8890a15f340968cfdb2d55ff9817b&page=1&pageSize=${this.props.pageSize}`;
         let data = await fetch(url);
         let parseData = await data.json()
         // console.log(parseData);
         this.setState({
-            articles:parseData.articles,
-            tpage:Math.ceil(parseData.totalResults/this.props.pageSize)
+            articles: parseData.articles,
+            tpage: Math.ceil(parseData.totalResults / this.props.pageSize)
         })
         // console.log(this.state.tpage)
     }
-    handlePrevClick = async () =>{
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=24c8890a15f340968cfdb2d55ff9817b&page=${this.state.page-1}&pageSize=${this.props.pageSize}`;
+    handlePrevClick = async () => {
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=24c8890a15f340968cfdb2d55ff9817b&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
         let data = await fetch(url);
         let parseData = await data.json()
         // console.log(parseData);
         this.setState({
-            articles:parseData.articles,
-            page: this.state.page-1
+            articles: parseData.articles,
+            page: this.state.page - 1
         })
     }
-    handleNextClick = async () =>{
-        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=24c8890a15f340968cfdb2d55ff9817b&page=${this.state.page+1}&pageSize=${this.props.pageSize}`;
+    handleNextClick = async () => {
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=24c8890a15f340968cfdb2d55ff9817b&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
         let data = await fetch(url);
         let parseData = await data.json()
         // console.log(parseData);
         this.setState({
-            articles:parseData.articles,
-            page: this.state.page+1
+            articles: parseData.articles,
+            page: this.state.page + 1
         })
     }
-    render(){
-        return(
+    render() {
+        return (
             <>
-            <Navbar/>
-            <div className="my-3" >
-                <div>
-                <h2 className='text-center' style={{color:"blue"}}>{this.props.topic} - Top HeadLines</h2>
+                <Navbar />
+                <div className="my-3" >
+                    <div>
+                        <h2 className='text-center' style={{ color: "blue" }}>{this.props.topic} - Top HeadLines</h2>
+                    </div>
+                    <div className="row">
+                        {this.state.articles.map((element) => {
+                            return <div className="col-md-4 my-3" key={element.url}>
+                                <Newsitem title={element.title} description={element.description} imageUrl={element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt} source={element.source.name} />
+                            </div>
+                        })}
+                    </div>
+                    <div className="container d-flex justify-content-between">
+                        <button disabled={this.state.page <= 1} type="button" className="btn btn-dark" onClick={this.handlePrevClick}>&larr;Prev</button>
+                        <button disabled={this.state.page >= this.state.tpage} type="button" className="btn btn-dark" onClick={this.handleNextClick}>Next&rarr;</button>
+                    </div>
+                    <div className="text-center">page no: {this.state.page}/{this.state.tpage}</div>
                 </div>
-                <div className="row">
-                    {this.state.articles.map((element)=>{
-                        return <div className="col-md-4 my-3" key = {element.url}>
-                            <Newsitem title={element.title} description={element.description} imageUrl={element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt} source={element.source.name}/>
-                        </div>
-                    })}
-                </div>
-                <div className="container d-flex justify-content-between">
-                    <button disabled={this.state.page<=1} type="button" className="btn btn-dark" onClick={this.handlePrevClick}>&larr;Prev</button>
-                    <button disabled={this.state.page>=this.state.tpage} type="button" className="btn btn-dark" onClick={this.handleNextClick}>Next&rarr;</button>
-                </div>
-                <div className="text-center">page no: {this.state.page}/{this.state.tpage}</div>
-            </div>
             </>
         )
     }

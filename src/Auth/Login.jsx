@@ -25,7 +25,7 @@ const Login = () => {
         if (json.success) {
             // Save the auth token and redirect
             localStorage.setItem('token', json.authToken);
-            navigate("/home");
+            navigate("/");
 
         }
         else {

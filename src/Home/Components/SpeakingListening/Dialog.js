@@ -1,8 +1,18 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import dial from './dialogue.json'
+import { useNavigate } from 'react-router-dom';
 import Ditem from './Ditem';
 // import song from '../audio/'
 const Dialog = (props) => {
+    let navigate = useNavigate();
+    useEffect(() => {
+        if (localStorage.getItem('token')) {
+          
+        }
+        else {
+            navigate("/login");
+        }
+    })
     // console.log(dial[1].di)\
     const id = props.id;
     console.log(id)

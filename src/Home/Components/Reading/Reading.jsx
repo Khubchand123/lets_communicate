@@ -1,10 +1,19 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import Header from '../Header/Navbar/Header';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet,useNavigate } from 'react-router-dom';
 import './Reading.css';
 
 
 function Reading() {
+    let navigate = useNavigate();
+        useEffect(() => {
+            if (localStorage.getItem('token')) {
+                
+            }
+            else {
+                navigate("/login");
+            }
+        })
     return (
         <>
         <div>

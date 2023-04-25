@@ -1,29 +1,32 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import sdata from './sub_topic.json'
-import { Link } from "react-router-dom"
+import { Link ,useNavigate} from "react-router-dom"
 import { Button } from 'semantic-ui-react'
 import Homeitem from './Homeitem'
 import Dialog from './Dialog'
 import Recoder from './Recoder'
+import dial from './dialogue.json'
 const Home = () => {
-    // const location = useLocation()
+    let navigate = useNavigate();
+    useEffect(() => {
+        if (localStorage.getItem('token')) {
+          
+        }
+        else {
+            navigate("/login");
+        }
+    })
+
+
     const data = sdata;
     const [id, setid] = useState(1);
     const [cid, setcid] = useState('A');
     const [colorB, setColorB] = useState('');
     const [colorC, setColorC] = useState('');
-    // const [fScreen,setFScreen] = useState(0);
-    // document.addEventListener("dblclick",()=>{
-    //     if(fScreen==0){
-    //         document.body.requestFullscreen();
-    //         setFScreen(1);
-    //     }
-    //     else{
-    //         document.exitFullscreen();
-    //         setFScreen();
-    //     }
-    // })
+    const dia = dial[id];
+    let first = dia.first;
+    let sec = dia.sec;
     return (
         
         <div className='d-flex' style={{ backgroundImage: "linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%)" }}>
@@ -74,8 +77,8 @@ const Home = () => {
                                 Choose Your Partner
                             </div>
                             <div className='my-3'>
-                                <button className='mx-3' onClick={() => { setcid('B'); setColorB('red'); setColorC('') }} style={{ background: colorB }}>CATHY</button>
-                                <button className='mx-3' onClick={() => { setcid('C'); setColorC('red'); setColorB('') }} style={{ background: colorC }}>MOM</button>
+                                <button className='mx-3' onClick={() => { setcid('B'); setColorB('red'); setColorC('') }} style={{ background: colorB }}>{first}</button>
+                                <button className='mx-3' onClick={() => { setcid('C'); setColorC('red'); setColorB('') }} style={{ background: colorC }}>{sec}</button>
                             </div>
                             <div>
                                 <button className='my-3' onClick={() => { setcid('A'); setColorC(''); setColorB('') }}>REFRESH</button>

@@ -1,11 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import sdata from './sub_topic.json'
-import { Link } from "react-router-dom"
+import { Link ,useNavigate} from "react-router-dom"
 import { Button } from 'semantic-ui-react'
 import Homeitem from './Homeitem'
 import Dialog from './Dialog'
 const Home = () => {
+    let navigate = useNavigate();
+    useEffect(() => {
+        if (localStorage.getItem('token')) {
+          
+        }
+        else {
+            navigate("/login");
+        }
+    })
     // const location = useLocation()
     const data = sdata;
     const [id,setid] = useState(1);

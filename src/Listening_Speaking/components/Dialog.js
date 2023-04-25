@@ -3,9 +3,8 @@ import dial from './dialogue.json'
 import Ditem from './Ditem';
 // import song from '../audio/'
 const Dialog = (props) => {
-    // console.log(dial[1].di)\
+
     const id = props.id;
-    console.log(id)
     const dia = dial[id];
     let first = dia.first;
     let sec = dia.sec;
@@ -19,7 +18,7 @@ const Dialog = (props) => {
                 {
                     renderList
                 }
-                {/* <audio src={require("../audio/1A.mp3")}  controls style={{marginLeft:"80px"}}></audio> */}
+                
         </div>
     )
 }
