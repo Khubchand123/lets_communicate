@@ -17,7 +17,7 @@ function Home() {
                             magnam a suscipit ipsa quas alias ab consequatur possimus exercitationem, 
                             et saepe quod nulla earum?
                         </p>
-                        <Link to='' className='btn'>
+                        <Link to='/listen' className='btn'>
                             <button className='btn'>Listen Here</button>
                         </Link>
                         
@@ -36,7 +36,9 @@ function Home() {
                             magnam a suscipit ipsa quas alias ab consequatur possimus exercitationem, 
                             et saepe quod nulla earum?
                         </p>
+                        <Link to='/speak'>
                         <button className='btn'>Speak Here</button>
+                        </Link>
                     </div>
                 </div>
             </div>

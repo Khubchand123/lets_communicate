@@ -48,11 +48,11 @@ const Register = () => {
 
     return (
         // <section className="vh-100 tag1 " >
-            <div className="container h-100 my-4" >
+            <div className="container h-100" >
                 <div className="row d-flex justify-content-center align-items-center h-100">
                     <div className="col-lg-12 col-xl-11">
                         <div className="card text-black tag2" >
-                            <div className="card-body p-md-5" style={{backgroundColor:"aliceblue"}}>
+                            <div className="card-body p-md-5" style={{backgroundColor:"aliceblue",width:"70vw"}}>
                                 <div className="row justify-content-center">
                                     <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 

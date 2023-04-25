@@ -22,14 +22,14 @@ function Reading() {
                 <div className="card" style={{width: "18rem"}}>
                 <img src="https://images.unsplash.com/photo-1576097492152-4687ccd1c6ec?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGFydGljbGV8ZW58MHx8MHx8&auto=format&fit=crop&w=400&q=60" className="card-img-top" alt="..."/>
                     <div className="card-body">
-                        <Link to='/Reading/Navbar'>
+                        <Link to='/Reading/News'>
                         <button className='card-btn'>News</button>
                         </Link>
                     </div>
                 </div>
             </div>  
         </div>
-        <Outlet />
+        {/* <Outlet /> */}
         </>
     )
 }

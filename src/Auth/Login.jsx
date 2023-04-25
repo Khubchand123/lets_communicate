@@ -46,7 +46,7 @@ const Login = () => {
 
                             
 
-                            <div class="card-body p-md-5" style={{backgroundColor:"aliceblue"}}>
+                            <div class="card-body p-md-5" style={{backgroundColor:"aliceblue",width:"70vw"}}>
                                 <div class="row justify-content-center align-items-center">
                                     <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1 but" >
 

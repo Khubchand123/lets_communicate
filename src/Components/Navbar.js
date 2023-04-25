@@ -12,19 +12,20 @@ const Navbar = () => {
         navigate('/login');
     }
     return (
-        <nav className="navbar navbar-expand-lg" style={{backgroundColor:"aliceblue"}}>
+        <nav className="navbar navbar-expand-lg" style={{backgroundColor:"aliceblue",height:"57px"}}>
             <div className="container-fluid">
-                <Link className="navbar-brand" to="/">iNoteBook</Link>
+                <Link className="navbar-brand" to="/">Communicate</Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
 
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul className="navbar-nav me-auto mb-2 mb-lg-0 my-4">
 
                         <li className="nav-item">
-                            <Link className={`nav-link ${location.pathname === "/home" ? "active" : ""}`} to="/home">Home</Link>
+                            <Link className={`nav-link ${location.pathname === "/home" ? "active" : ""}`} to="/">Home</Link>
                         </li>
+                        
                         
                     </ul>
                     {!localStorage.getItem('token')?<form className="d-flex">

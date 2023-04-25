@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import NewsItems from './NewsItems';
+import React, { Component } from 'react'
+import Newsitem from './Newsitem'
 import PropTypes from 'prop-types';
+import Navbar from './Navbar';
 
 export class News extends Component{
-    // Without using API
-    
+                    // Without using API
     // articles = [
     //     {
     //         "source": {
@@ -86,14 +86,16 @@ export class News extends Component{
     }
     render(){
         return(
-            <div className="container my-3">
+            <>
+            <Navbar/>
+            <div className="my-3" >
                 <div>
-                <h2 className='text-center' style={{marginTop:"60px",color:"blue"}}>{this.props.topic} - Top HeadLines</h2>
+                <h2 className='text-center' style={{color:"blue"}}>{this.props.topic} - Top HeadLines</h2>
                 </div>
                 <div className="row">
                     {this.state.articles.map((element)=>{
                         return <div className="col-md-4 my-3" key = {element.url}>
-                            <NewsItems title={element.title} description={element.description} imageUrl={element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt} source={element.source.name}/>
+                            <Newsitem title={element.title} description={element.description} imageUrl={element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt} source={element.source.name}/>
                         </div>
                     })}
                 </div>
@@ -103,6 +105,7 @@ export class News extends Component{
                 </div>
                 <div className="text-center">page no: {this.state.page}/{this.state.tpage}</div>
             </div>
+            </>
         )
     }
 }
