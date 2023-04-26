@@ -24,7 +24,7 @@ const Notess = () => {
     }
   )
   return (
-    <div className='container ' style={{ background: "linear-gradient(#e66465, #9198e5)" }}>
+    <div className='' style={{ background: "linear-gradient(#e66465, #9198e5)" }}>
       <div className='row'>
         {dataList}
       </div>

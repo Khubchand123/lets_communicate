@@ -1,28 +1,28 @@
-import React, { Component } from 'react'
-import {Link, Outlet} from "react-router-dom"
+import React, { Component,useEffect } from 'react'
+import {Link, Outlet,useLocation} from "react-router-dom"
 const Navbar=()=> {
-    
+    let location = useLocation();
+    useEffect(()=>{
+
+    },[location]);
         return (
-            <nav className="navbar fixed-top navbar-expand-lg bg-body-tertiary">
-                <div className="container-fluid">
-                    <Link className="navbar-brand" to="/Reading/News/">News</Link>
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li className="nav-item"><Link className="nav-link" to="/Reading/News/business">Business</Link></li>
-                            <li className="nav-item"><Link className="nav-link" to="/Reading/News/entertainment">Entertainment</Link></li>
-                            <li className="nav-item"><Link className="nav-link" to="/Reading/News/general">General</Link></li>
-                            <li className="nav-item"><Link className="nav-link" to="/Reading/News/health">Health</Link></li>
-                            <li className="nav-item"><Link className="nav-link" to="/Reading/News/science">Science</Link></li>
-                            <li className="nav-item"><Link className="nav-link" to="/Reading/News/sports">Sports</Link></li>
-                            <li className="nav-item"><Link className="nav-link" to="/Reading/News/technology">Technology</Link></li>
+            
+                // <div className="">
+                    
+                    <div style={{width:"10vw"}} >
+                       
+                            <div className='my-4 mx-3' style={{backgroundColor:` ${location.pathname==="/Reading/News/business" ? "red":""}`}}><Link className="nav-link" to="/Reading/News/business">Business</Link></div>
+                            <div className='my-4 mx-3' style={{backgroundColor:` ${location.pathname==="/Reading/News/entertainment" ? "red":""}`}}><Link className="nav-link" to="/Reading/News/entertainment">Entertainment</Link></div>
+                            <div className='my-4 mx-3' style={{backgroundColor:` ${location.pathname==="/Reading/News/general" ? "red":""}`}}><Link className="nav-link" to="/Reading/News/general">General</Link></div>
+                            <div className='my-4 mx-3' style={{backgroundColor:` ${location.pathname==="/Reading/News/health" ? "red":""}`}}><Link className="nav-link" to="/Reading/News/health">Health</Link></div>
+                            <div className='my-4 mx-3' style={{backgroundColor:` ${location.pathname==="/Reading/News/science" ? "red":""}`}}><Link className="nav-link" to="/Reading/News/science">Science</Link></div>
+                            <div className='my-4 mx-3' style={{backgroundColor:` ${location.pathname==="/Reading/News/sports" ? "red":""}`}}><Link className="nav-link" to="/Reading/News/sports">Sports</Link></div>
+                            <div className='my-4 mx-3' style={{backgroundColor:` ${location.pathname==="/Reading/News/technology" ? "red":""}`}}><Link className="nav-link" to="/Reading/News/technology">Technology</Link></div>
                             <Outlet/>
-                        </ul>
+                        
                     </div>
-                </div>
-            </nav>
+                // </div>
+            
         )
     
 }

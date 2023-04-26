@@ -10,6 +10,7 @@ import Navbar from "./Components/Navbar"
 import Listen from "./Listening_Speaking/components/Notess";
 import Data from "./Listening_Speaking/components/Home"
 import Speak from "./Listening_Speaking/component4/Speaking";
+
 function App() {
   
   return (
@@ -17,6 +18,9 @@ function App() {
 
       <BrowserRouter>
         <Navbar />
+        <div >
+          <img src="https://cryptologos.cc/logos/chatcoin-chat-logo.png" alt="" style={{position: "absolute",width: "60px",marginTop: "80vh",marginLeft: "90vw"}}/>
+        </div>
         <Routes>
           <Route path='/' element={<HomePage />}></Route>
           <Route path='/homepage' element={<HomePage />}></Route>
@@ -38,6 +42,9 @@ function App() {
 
           <Route path='/speak' element={<Speak/>}></Route>
         </Routes>
+        {/* <div>
+          <img src="https://w7.pngwing.com/pngs/566/608/png-transparent-iphone-7-imessage-messages-text-messaging-apple-grass-fruit-nut-mobile-phones-thumbnail.png" alt="" />
+        </div> */}
       </BrowserRouter>
     // {/* </div> */}
   );

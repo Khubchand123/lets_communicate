@@ -24,7 +24,7 @@ const Notess = () => {
     }
   )
   return (
-    <div className='container '>
+    <div className=''>
       <div className='row'>
       {dataList}
       </div>

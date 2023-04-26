@@ -90,6 +90,7 @@ export class News extends Component {
     render() {
         return (
             <>
+            <div style={{display:"flex"}}>
                 <Navbar />
                 <div className="my-3" >
                     <div>
@@ -98,7 +99,7 @@ export class News extends Component {
                     <div className="row">
                         {this.state.articles.map((element) => {
                             return <div className="col-md-4 my-3" key={element.url}>
-                                <Newsitem title={element.title} description={element.description} imageUrl={element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt} source={element.source.name} />
+                                <Newsitem title={element.title} description={element.description} imageUrl={element.urlToImage?element.urlToImage:"https://i.pinimg.com/originals/5d/3a/22/5d3a225a2f2da8fa865000318b4725f6.jpg"} newsUrl={element.url} author={element.author} date={element.publishedAt} source={element.source.name} />
                             </div>
                         })}
                     </div>
@@ -107,6 +108,7 @@ export class News extends Component {
                         <button disabled={this.state.page >= this.state.tpage} type="button" className="btn btn-dark" onClick={this.handleNextClick}>Next&rarr;</button>
                     </div>
                     <div className="text-center">page no: {this.state.page}/{this.state.tpage}</div>
+                </div>
                 </div>
             </>
         )
