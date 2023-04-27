@@ -103,7 +103,8 @@ router.post('/login',[
                 // generate token with the help of jsonwebtoken with the combination of data and secret string  
         const authToken = jwt.sign(data,JWT_SECRET);
         success = true;
-        res.json({ success, authToken });
+        const name = user.name;
+        res.json({ success, authToken,name });
     }catch(error){
         console.error(error.message);
         res.status(500).send("Internal Server Error");

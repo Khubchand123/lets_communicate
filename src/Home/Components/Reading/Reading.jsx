@@ -1,5 +1,4 @@
 import React,{useEffect} from 'react'
-import Header from '../Header/Navbar/Header';
 import { Link, Outlet,useNavigate } from 'react-router-dom';
 import './Reading.css';
 
@@ -16,9 +15,7 @@ function Reading() {
         })
     return (
         <>
-        <div>
-            <Header></Header>
-        </div>
+        
         <div className='reading-section'>
             <h1>Reading</h1>
             <div className='cards'>

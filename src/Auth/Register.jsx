@@ -31,8 +31,8 @@ const Register = () => {
             console.log(json);
             if (json.success) {
                 // Save the auth token and redirect
-                localStorage.setItem('token', json.authToken);
-                navigate("/home");
+                alert("Register Successfully");
+                navigate("/login");
 
             }
             else {

@@ -84,7 +84,7 @@ const Home = () => {
                                 <button className='my-3' onClick={() => { setcid('A'); setColorC(''); setColorB('') }}>REFRESH</button>
                             </div>
                         </div>
-                        <div className='my-3' style={{ marginLeft: "130px",position:"absolute" }}>
+                        <div className='my-3' style={{ marginLeft: "10px",position:"absolute" }}>
                             <Recoder />
                         </div>
                     </div>

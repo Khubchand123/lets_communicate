@@ -26,14 +26,14 @@ const Speaking = () => {
 
     ]
     return (
-        <div style={{ backgroundImage: "radial-gradient(red, yellow, green)" }}>
+        <div style={{ backgroundColor:"rgb(162,167,154)",marginTop:"-10px" }}>
             {
-                ques.map((q) => {
+                ques.map((q,i) => {
                     return (
                         // <div>
-                        <div style={{ textAlign: "center" }} >
-                            <p className='my-2'>{q}</p>
-                            <textarea style={{ backgroundColor: "black", color: "white" }} name="" id="" cols="150" rows="10"></textarea>
+                        <div style={{marginLeft:"15vw" }} >
+                            <p className='my-2' style={{color:"white",fontSize:"24px"}}>{i+1}. {q}</p>
+                            <textarea placeholder="Type Here...."style={{ backgroundColor: "#2c5245", color: "white" ,fontSize:"24px",width:"70vw",height:"40vh",borderRadius:"4px",border:"#2c5245",boxShadow:"1px 7px 10px 5px #726666"}} name="" id="" cols="150" rows="10"></textarea>
                             <div>
                                 <Recoder />
                             </div>

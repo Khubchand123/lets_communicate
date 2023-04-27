@@ -1,6 +1,5 @@
-// import './App.css';
+import { useState } from 'react';
 import Reading from './Home/Components/Reading/Reading';
-// import Navbar from './Home/Components/Reading/News/Navbar';
 import News from './Home/Components/Reading/News/News';
 import HomePage from './Home/HomePage';
 import Signup from './Auth/Register'
@@ -12,40 +11,62 @@ import Data from "./Listening_Speaking/components/Home"
 import Speak from "./Listening_Speaking/component4/Speaking";
 
 function App() {
-  
+  const [fScreen, setFScreen] = useState(0);
+  document.addEventListener("dblclick", () => {
+    if (fScreen == 0) {
+      document.body.requestFullscreen();
+      setFScreen(1);
+    }
+    else {
+      document.exitFullscreen();
+      setFScreen(0);
+    }
+  })
+  document.onkeydown = function (e) {
+    if(e.keyCode==70){
+      if (fScreen == 0) {
+        document.body.requestFullscreen();
+        setFScreen(1);
+      }
+      else {
+        document.exitFullscreen();
+        setFScreen(0);
+      }
+    }
+  }
   return (
     // <div>
 
-      <BrowserRouter>
-        <Navbar />
-        <div >
+    <BrowserRouter>
+      <Navbar />
+      {/* <div >
           <img src="https://cryptologos.cc/logos/chatcoin-chat-logo.png" alt="" style={{position: "absolute",width: "60px",marginTop: "80vh",marginLeft: "90vw"}}/>
-        </div>
-        <Routes>
-          <Route path='/' element={<HomePage />}></Route>
-          <Route path='/homepage' element={<HomePage />}></Route>
+        </div> */}
+      <Routes>
+        <Route path='/' element={<HomePage />}></Route>
+        <Route path='/homepage' element={<HomePage />}></Route>
 
-          <Route exact path="/login" element={<Login />}></Route>
-          <Route exact path="/signup" element={<Signup />}></Route>
-          <Route path='/reading' element={<Reading />}></Route>
-          <Route path='/reading/news' element={<News key="general" pageSize={9} country="in" category="general" topic="General" />}></Route>
-          <Route path="/reading/news/business" element={<News key="business" pageSize={9} country="in" category="business" topic="Business" />}></Route>
-          <Route path="/reading/news/entertainment" element={<News key="entertainment" pageSize={9} country="in" category="entertainment" topic="EntertainMent" />}></Route>
-          <Route path="/reading/news/general" element={<News key="general" pageSize={9} country="in" category="general" topic="General" />}></Route>
-          <Route path="/reading/news/health" element={<News key="health" pageSize={9} country="in" category="health" topic="Health" />}></Route>
-          <Route path="/reading/news/science" element={<News key="science" pageSize={9} country="in" category="science" topic="Science" />}></Route>
-          <Route path="/reading/news/sports" element={<News key="sports" pageSize={9} country="in" category="sports" topic="Sports" />}></Route>
-          <Route path="/reading/news/technology" element={<News key="technology" pageSize={9} country="in" category="technology" topic="Technology" />}></Route>
+        <Route exact path="/login" element={<Login />}></Route>
+        <Route exact path="/signup" element={<Signup />}></Route>
+        <Route path='/reading' element={<Reading />}></Route>
+        <Route path='/reading/news' element={<News key="general" pageSize={9} country="in" category="general" topic="General" />}></Route>
+        <Route path="/reading/news/business" element={<News key="business" pageSize={9} country="in" category="business" topic="Business" />}></Route>
+        <Route path="/reading/news/entertainment" element={<News key="entertainment" pageSize={9} country="in" category="entertainment" topic="EntertainMent" />}></Route>
+        <Route path="/reading/news/general" element={<News key="general" pageSize={9} country="in" category="general" topic="General" />}></Route>
+        <Route path="/reading/news/health" element={<News key="health" pageSize={9} country="in" category="health" topic="Health" />}></Route>
+        <Route path="/reading/news/science" element={<News key="science" pageSize={9} country="in" category="science" topic="Science" />}></Route>
+        <Route path="/reading/news/sports" element={<News key="sports" pageSize={9} country="in" category="sports" topic="Sports" />}></Route>
+        <Route path="/reading/news/technology" element={<News key="technology" pageSize={9} country="in" category="technology" topic="Technology" />}></Route>
 
-          <Route path='/listen' element={<Listen/>}></Route>
-          <Route path='/listen/data' element={<Data/>}></Route>
+        <Route path='/listen' element={<Listen />}></Route>
+        <Route path='/listen/data' element={<Data />}></Route>
 
-          <Route path='/speak' element={<Speak/>}></Route>
-        </Routes>
-        {/* <div>
+        <Route path='/speak' element={<Speak />}></Route>
+      </Routes>
+      {/* <div>
           <img src="https://w7.pngwing.com/pngs/566/608/png-transparent-iphone-7-imessage-messages-text-messaging-apple-grass-fruit-nut-mobile-phones-thumbnail.png" alt="" />
         </div> */}
-      </BrowserRouter>
+    </BrowserRouter>
     // {/* </div> */}
   );
 }
@@ -68,47 +89,6 @@ export default App;
 
 
 
-// import { useState } from "react";
-// import Navbar from "./Components/Navbar"
-// import Home from "./Components/Home"
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import NoteState from "./context/notes/NoteState";
-// import Alert from "./Components/Alert";
-// import Signup from './Auth/Register'
-// import Login from "./Auth/Login"
-// import Speaking from "./Listening_Speaking/component4/Speaking";
-// function App() {
-//   const [fScreen,setFScreen] = useState(0);
-//     document.addEventListener("dblclick",()=>{
-//         if(fScreen==0){
-//             document.body.requestFullscreen();
-//             setFScreen(1);
-//         }
-//         else{
-//             document.exitFullscreen();
-//             setFScreen();
-//         }
-//     })
-//   return (
-//     <>
-//        <NoteState>
-//         <BrowserRouter>
-//           <Navbar />  
-//           {/* <Alert message={"Hello"} /> */}
-//           {/* <div className="container"> */}
-//             <Routes>
-//               <Route exact path="/home" element={<Home />}></Route>
-//               <Route exact path="/login" element={<Login />}></Route>
-//               <Route exact path="/signup" element={<Signup />}></Route>
-//             </Routes>
-//           {/* </div> */}
-//         </BrowserRouter>
-//       </NoteState>
-//     </>
-//   );
-// }
-
-// export default App;
 
 
 

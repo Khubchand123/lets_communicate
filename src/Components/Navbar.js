@@ -9,21 +9,26 @@ const Navbar = () => {
     }, [location]);
     const handlelogOut=()=>{
         localStorage.removeItem('token');
+        localStorage.removeItem('username');
         navigate('/login');
     }
     return (
-        <nav className="navbar navbar-expand-lg" style={{backgroundColor:"aliceblue",height:"57px"}}>
+        <nav className="navbar navbar-expand-lg" style={{height:"57px",color:"white"}}>
             <div className="container-fluid">
-                <Link className="navbar-brand" to="/">Communicate</Link>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
 
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0 my-4">
-
                         <li className="nav-item">
-                            <Link className={`nav-link ${location.pathname === "/home" ? "active" : ""}`} to="/">Home</Link>
+                            <Link className="nav-link" to="/" style={{color:"white"}}><p style={{fontSize:"27px"}}>LetsCom</p></Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link"  to="/listen" style={{color:"white"}}>Listening</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/speak" style={{color:"white"}}>Speking</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/reading" style={{color:"white"}}>Reading</Link>
                         </li>
                         
                         
@@ -31,7 +36,7 @@ const Navbar = () => {
                     {!localStorage.getItem('token')?<form className="d-flex">
                         <Link className="btn btn-primary mx-1" to="/login" role="button">Login</Link>
                         <Link className="btn btn-primary mx-1" to="/signup" role="button">Signup</Link>
-                    </form>:<button className='btn btn-primary' onClick={handlelogOut}>LogOut</button>}
+                    </form>:<div style={{display:"flex"}}><p style={{margin:"8px",color:"white"}}>Hi, {localStorage.getItem('username')}</p><button className='btn btn-primary' onClick={handlelogOut}>LogOut</button></div>}
                 </div>
             </div>
         </nav>

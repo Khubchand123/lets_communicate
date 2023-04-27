@@ -1,5 +1,8 @@
 import React from 'react'
 import { render } from "react-dom";
+import pic1 from "../../logos/mic.png"
+import pic2 from "../../logos/del.png"
+
 import vmsg from "vmsg";
 const recorder = new vmsg.Recorder({
     wasmURL: "https://unpkg.com/vmsg@0.3.0/vmsg.wasm"
@@ -38,9 +41,9 @@ class Recoder extends React.Component {
         return (
             <React.Fragment>
                 <div className=''>
-                <img src="https://w7.pngwing.com/pngs/720/660/png-transparent-google-assistant-brand-google-search-google-chrome-google-logo-color-android.png" alt="" style={{width:"70px"}} disabled={isLoading} onClick={this.record}></img>
+                <img src={pic1} alt="" style={{width:"70px",marginLeft:"8vw"}} disabled={isLoading} onClick={this.record}></img>
                 <div className="my-3 rec" style={{marginLeft:"-100px"}}>
-                        {recordings!=null&&<div id="rec"><audio src={recordings} controls /><div style={{color:"red",textAlign:"center"}}><i class="fa-solid fa-trash" onClick={()=>{this.setState({recordings:null})}} /></div></div>}
+                        {recordings!=null&&<div id="rec" style={{display:"flex",marginLeft:"8vw"}}><audio src={recordings} controls style={{width:"15vw"}}/><div style={{textAlign:"center",marginLeft:"9px",marginTop:"5px"}}><img src={pic2} onClick={()=>{this.setState({recordings:null}) }} style={{width:"45px"}}/></div></div>}
                 </div>
                 </div>
             </React.Fragment>
