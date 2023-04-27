@@ -13,7 +13,7 @@ const Navbar = () => {
         navigate('/login');
     }
     return (
-        <nav className="navbar navbar-expand-lg" style={{height:"57px",color:"white"}}>
+        <nav className="navbar navbar-expand-lg" style={{height:"57px",color:"white",backgroundColor: "rgb(44, 82, 69)"}}>
             <div className="container-fluid">
 
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">

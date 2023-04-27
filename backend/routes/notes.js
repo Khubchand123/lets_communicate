@@ -4,7 +4,6 @@ const fetchuser = require('../middleware/fetchuser');
 const router = express.Router();
 // Notes file where notes of user save 
 const Notes = require('../models/Notes');
-const Topics = require('../models/Topics');
 router.get('/fetchnotes', fetchuser, async (req, res) => {
     // finding notes by Notes.find function by id
     try {
@@ -14,15 +13,7 @@ router.get('/fetchnotes', fetchuser, async (req, res) => {
         res.status(401).send({ error: "Please authenticate usinga valid token" })
     }
 })
-router.get('/fetchtopic', async (req, res) => {
-    // finding notes by Notes.find function by id
-    try {
-        const notes = await Topics.find();
-        res.json(notes);
-    } catch (error) {
-        res.status(401).send({ error: "Please authenticate usinga valid token" })
-    }
-})
+
 
 // Adding Note in user database
 router.post('/addnote', fetchuser, [
@@ -33,9 +24,9 @@ router.post('/addnote', fetchuser, [
             if (!error.isEmpty()) {
                 return res.status(400).json({ errors: error.array() });
             }
-            const { title, description, tag } = req.body;
+            const { title, description, tag} = req.body;
             const note = new Notes({
-                title, description, tag, user: req.user.id
+                title, description, tag,user: req.user.id
             })
             // saving note in database
             const saveNote = await note.save()
@@ -66,7 +57,9 @@ router.put('/updatenote/:id', fetchuser, [
             if (tag) {
                 newNote.tag = tag;
             }
+            
             let note = await Notes.findById(req.params.id);
+            
             if (!note) {
                 return res.status(400).send("Not found");
             }

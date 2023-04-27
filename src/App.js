@@ -9,7 +9,8 @@ import Navbar from "./Components/Navbar"
 import Listen from "./Listening_Speaking/components/Notess";
 import Data from "./Listening_Speaking/components/Home"
 import Speak from "./Listening_Speaking/component4/Speaking";
-
+import Notes from "./Components/Home";
+import NoteState from "./context/notes/NoteState";
 function App() {
   const [fScreen, setFScreen] = useState(0);
   document.addEventListener("dblclick", () => {
@@ -36,7 +37,7 @@ function App() {
   }
   return (
     // <div>
-
+    <NoteState>
     <BrowserRouter>
       <Navbar />
       {/* <div >
@@ -62,12 +63,11 @@ function App() {
         <Route path='/listen/data' element={<Data />}></Route>
 
         <Route path='/speak' element={<Speak />}></Route>
+
+        <Route path='/writing' element={<Notes />}></Route>
       </Routes>
-      {/* <div>
-          <img src="https://w7.pngwing.com/pngs/566/608/png-transparent-iphone-7-imessage-messages-text-messaging-apple-grass-fruit-nut-mobile-phones-thumbnail.png" alt="" />
-        </div> */}
     </BrowserRouter>
-    // {/* </div> */}
+    </NoteState>
   );
 }
 

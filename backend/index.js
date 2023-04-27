@@ -2,7 +2,7 @@
 const express = require('express')
 const mongoose = require('mongoose');
     //    /inotebook for makin inotebook database in mongodbs
-const mongoURI = "mongodb://localhost:27017/inotebook";
+const mongoURI = "mongodb://localhost:27017/letscommunicate";
 
 
 mongoose.connect(mongoURI,{ useNewUrlParser: true,useUnifiedTopology: true })

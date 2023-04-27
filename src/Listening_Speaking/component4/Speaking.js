@@ -1,11 +1,12 @@
-import React,{useEffect} from 'react'
+import React,{useEffect,useContext, useState} from 'react'
+import noteContext from "../../context/notes/noteContext"
 import { useNavigate } from 'react-router-dom';
 import Recoder from "../components/Recoder"
 const Speaking = () => {
     let navigate = useNavigate();
     useEffect(() => {
         if (localStorage.getItem('token')) {
-          
+          console.log(localStorage.getItem('token'))
         }
         else {
             navigate("/login");
@@ -31,11 +32,11 @@ const Speaking = () => {
                 ques.map((q,i) => {
                     return (
                         // <div>
-                        <div style={{marginLeft:"15vw" }} >
+                        <div style={{marginLeft:"15vw" } } >
                             <p className='my-2' style={{color:"white",fontSize:"24px"}}>{i+1}. {q}</p>
-                            <textarea placeholder="Type Here...."style={{ backgroundColor: "#2c5245", color: "white" ,fontSize:"24px",width:"70vw",height:"40vh",borderRadius:"4px",border:"#2c5245",boxShadow:"1px 7px 10px 5px #726666"}} name="" id="" cols="150" rows="10"></textarea>
+                            <textarea placeholder="Type Here...." style={{ backgroundColor: "#2c5245", color: "white" ,fontSize:"24px",width:"70vw",height:"40vh",borderRadius:"4px",border:"#2c5245",boxShadow:"1px 7px 10px 5px #726666"}} name="" id="" cols="150" rows="10"></textarea>
                             <div>
-                                <Recoder />
+                                <Recoder/>
                             </div>
                         </div>
                     )

@@ -55,7 +55,7 @@ function Home() {
                             magnam a suscipit ipsa quas alias ab consequatur possimus exercitationem, 
                             et saepe quod nulla earum?
                         </p>
-                        <Link to='/Reading' className='btn'>
+                        <Link to='/reading' className='btn'>
                             <button className='btn'>Read Here</button>
                         </Link>
                     </div>
@@ -73,7 +73,9 @@ function Home() {
                             magnam a suscipit ipsa quas alias ab consequatur possimus exercitationem, 
                             et saepe quod nulla earum?
                         </p>
-                        <button className='btn'>Write Here</button>
+                        <Link to='/writing' className='btn'>
+                            <button className='btn'>Write Here</button>
+                        </Link>
                     </div>
                 </div>
             </div>

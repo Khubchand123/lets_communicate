@@ -92,9 +92,9 @@ export class News extends Component {
             <>
             <div style={{display:"flex"}}>
                 <Navbar />
-                <div className="my-3" >
-                    <div>
-                        <h2 className='text-center' style={{ color: "blue" }}>{this.props.topic} - Top HeadLines</h2>
+                <div  style={{backgroundImage:'url("https://static.vecteezy.com/system/resources/thumbnails/007/935/327/small/newspaper-frame-background-illustration-vector.jpg")'}} >
+                    <div className="my-3" style={{backgroundColor: "rgb(44, 82, 69)",width:"30vw",marginLeft:"30vw"}}>
+                        <h2 className='text-center' style={{ color: "white" }}>{this.props.topic} - Top HeadLines</h2>
                     </div>
                     <div className="row">
                         {this.state.articles.map((element) => {

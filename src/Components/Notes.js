@@ -27,17 +27,21 @@ const Notes = () => {
     }, [])
     return (
         <>
-            <AddNote />
-            <div className="row my-3">
+            {/* <AddNote /> */}
+            <div className="row my-3 mx-4">
                 <h2>Your Notes</h2>
-                <div className="container mx-2"> 
+                
                     {notes.length===0 && 'No notes to display'}
-                </div>
+                <div style={{display:"flex"}}>
                 {
                     notes.map((note) => {
                         return <Noteitem key={note._id} note={note} />;
                     })
                 }
+                <div onClick={alert(1)}>
+                <i class="fa-solid fa-plus" style={{marginTop:"17vh"}}></i>
+                </div>
+                </div>
             </div>
             
         </>
