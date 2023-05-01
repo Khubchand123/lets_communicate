@@ -10,7 +10,6 @@ const NoteState = (props) => {
   // getAllNotes
   const getNotes = async () => {
     // API Call 
-    fetchTopics();
     const response = await fetch(`${host}/api/notes/fetchnotes`, {
       method: 'GET',
       headers: {
@@ -77,21 +76,9 @@ const NoteState = (props) => {
       }
     }
   }
-  const fetchTopics = async () => {
-    // API Call 
-    const response = await fetch(`${host}/api/notes/fetchtopic`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    });
-    const json = await response.json()
-    // console.log(json)
-    setTopics(json)
-  }
 
   return (
-    <NoteContext.Provider value={{ notes,topics, addNote, deleteNote, editNote, getNotes,fetchTopics }}>
+    <NoteContext.Provider value={{ notes,topics, addNote, deleteNote, editNote, getNotes, }}>
       {props.children}
     </NoteContext.Provider>
   )
