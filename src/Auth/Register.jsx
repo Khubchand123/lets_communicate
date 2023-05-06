@@ -20,7 +20,7 @@ const Register = () => {
         else if (password != cpassword) {
             alert('password must be same');
         } else {
-            const response = await fetch("http://localhost:4000/api/auth/createuser", {
+            const response = await fetch("http://localhost:5000/api/auth/createuser", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
