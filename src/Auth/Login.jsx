@@ -13,30 +13,25 @@ const Login = () => {
     const navigate = useNavigate();
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if(credentials.email=="khub@gmail.com"){
-            localStorage.setItem('token', "abcdefghi");
-            localStorage.setItem('username',"khub");
+        const response = await fetch("http://localhost:4000/api/auth/login", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email: credentials.email, password: credentials.password })
+        });
+        const json = await response.json()
+        console.log(json);
+        if (json.success) {
+            // Save the auth token and redirect
+            localStorage.setItem('token', json.authToken);
+            localStorage.setItem('username',json.name);
             navigate("/");
-        }
-        // const response = await fetch("http://localhost:4000/api/auth/login", {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json'
-        //     },
-        //     body: JSON.stringify({ email: credentials.email, password: credentials.password })
-        // });
-        // const json = await response.json()
-        // console.log(json);
-        // if (json.success) {
-        //     // Save the auth token and redirect
-        //     localStorage.setItem('token', json.authToken);
-        //     localStorage.setItem('username',json.name);
-        //     navigate("/");
 
-        // }
-        // else {
-        //     alert("Invalid credentials");
-        // }
+        }
+        else {
+            alert("Invalid credentials");
+        }
     }
 
     const onChange = (e) => {
